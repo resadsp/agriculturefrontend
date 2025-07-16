@@ -2871,6 +2871,7 @@ section,
     }
        
     .form-group {
+      padding: 6px 0px;
       margin-bottom: 25px;
       position: relative;
     }
@@ -2878,7 +2879,7 @@ section,
     .form-label {
       font-weight: 600;
       color: var(--primary-color);
-      margin-bottom: 8px;
+      margin-bottom: 14px;
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.5px;

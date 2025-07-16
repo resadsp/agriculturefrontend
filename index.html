@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Prijava - AgriCulture</title>
+  <meta name="description" content="Prijavite se na AgriCulture platformu">
+  <meta name="keywords" content="prijava, login, poljoprivreda, agriculture">
+  
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  
+  <!-- Main CSS File -->
+  <link href="static/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="static/img/logo.png" alt="AgriCulture">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" class="active">Prijava</a></li>
+          <li><a href="register.html">Registracija</a></li>
+          <li><a href="homepage.html">O nama</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="login-section">
+      <div class="container" id="c1">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-8">
+            <div class="login-container" data-aos="fade-up" data-aos-delay="100">
+              <div class="login-header">
+                <h2><i class="bi bi-person-circle"></i> Dobrodošli</h2>
+                <div class="subtitle">Prijavite se na svoj AgriCulture nalog</div>
+              </div>
+              
+              <div class="login-form">
+                <form id="loginForm" action="#" method="POST">
+                  <div class="form-group">
+                    <label for="username" class="form-label">
+                      <i class="bi bi-person"></i> Korisničko ime
+                    </label>
+                    <input type="text" class="form-control" id="username" name="username" required placeholder="Unesite korisničko ime">
+                  </div>
+                               
+                  <div class="form-group">
+                    <label for="password" class="form-label">
+                      <i class="bi bi-lock"></i> Lozinka
+                    </label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="password" name="password" required placeholder="Unesite lozinku">
+                      <button type="button" class="password-toggle" onclick="togglePassword()">
+                        <i class="bi bi-eye" id="passwordIcon"></i>
+                      </button>
+                    </div>
+                  </div>
+                               
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                      <label class="form-check-label" for="remember">
+                        Zapamti me na ovom uređaju
+                      </label>
+                    </div>
+                  </div>
+                               
+                  <button type="submit" class="btn btn-primary btn-login">
+                    <i class="bi bi-box-arrow-in-right"></i> Prijavi se
+                  </button>
+                </form>
+                           
+                <div class="register-link">
+                  <p style="font-size: 14px;">Nemate nalog? <a href="register.html">Registrujte se ovde</a></p>
+                  <p style="font-size: 14px;"><a href="#" id="forgotPassword">Zaboravili ste lozinku?</a></p>
+                  <p style="font-size:13px; color: #6c757d;">
+                    <i class="bi bi-info-circle"></i> 
+                    Želite da saznate više o nama? Posetite <a href="homepage.html">O nama</a> stranicu
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Autorska prava <strong><span>AgriCulture</span></strong>. Sva prava zadržana
+          </div>
+          <div class="credits">
+            Dizajnirao <a href="https://resadspahovic.netlify.app/">Resad Spahovic</a>
+          </div>
+        </div>
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href="" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="background-color: #28a745;">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/js/main.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+
+    // Password toggle functionality
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const passwordIcon = document.getElementById('passwordIcon');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordIcon.className = 'bi bi-eye-slash';
+      } else {
+        passwordInput.type = 'password';
+        passwordIcon.className = 'bi bi-eye';
+      }
+    }
+
+    // Form validation and submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      // Validate form
+      if (!validateForm()) {
+        return;
+      }
+      
+      // Disable button and show loading
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="loading-spinner"></span> Prijavljivanje...';
+      
+      // Simulate network delay for better UX
+      setTimeout(() => {
+        fetch('/', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showMessage(data.message, 'success');
+            
+            // Add success animation
+            submitBtn.innerHTML = '<i class="bi bi-check-circle"></i> Uspešno!';
+            
+            setTimeout(() => {
+              if (data.redirect) {
+                window.location.href = data.redirect;
+              } else {
+                window.location.reload();
+              }
+            }, 1500);
+            
+          } else {
+            showMessage(data.message, 'error');
+            
+            // Shake animation for error
+            document.querySelector('.login-container').style.animation = 'shake 0.5s ease-in-out';
+            setTimeout(() => {
+              document.querySelector('.login-container').style.animation = '';
+            }, 500);
+            
+            if (data.email_not_verified && data.email) {
+              showResendVerificationOption(data.email);
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          showMessage('Greška pri komunikaciji sa serverom! Molimo pokušajte ponovo.', 'error');
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        });
+      }, 500);
+    });
+
+    // Form validation
+    function validateForm() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      
+      if (!username) {
+        showMessage('Molimo unesite korisničko ime!', 'error');
+        document.getElementById('username').focus();
+        return false;
+      }
+      
+      if (!password) {
+        showMessage('Molimo unesite lozinku!', 'error');
+        document.getElementById('password').focus();
+        return false;
+      }
+      
+      if (password.length < 6) {
+        showMessage('Lozinka mora imati najmanje 6 karaktera!', 'error');
+        document.getElementById('password').focus();
+        return false;
+      }
+      
+      return true;
+    }
+
+    // Enhanced message display
+    function showMessage(message, type) {
+      // Remove existing alerts
+      const existingAlerts = document.querySelectorAll('.alert');
+      existingAlerts.forEach(alert => {
+        alert.style.animation = 'slideOutUp 0.3s ease-in';
+        setTimeout(() => alert.remove(), 300);
+      });
+      
+      // Create new alert
+      const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+      const iconClass = type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill';
+      
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert ${alertClass} alert-dismissible fade show`;
+      alertDiv.innerHTML = `
+        <i class="bi ${iconClass}"></i>
+        <strong>${type === 'success' ? 'Uspeh!' : 'Greška!'}</strong> ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      `;
+      
+      // Add to form
+      const loginForm = document.querySelector('.login-form');
+      loginForm.insertBefore(alertDiv, loginForm.firstChild);
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        if (alertDiv.parentNode) {
+          alertDiv.style.animation = 'slideOutUp 0.3s ease-in';
+          setTimeout(() => {
+            if (alertDiv.parentNode) {
+              alertDiv.remove();
+            }
+          }, 300);
+        }
+      }, 5000);
+    }
+
+    // Enhanced resend verification
+    function showResendVerificationOption(email) {
+      const resendDiv = document.createElement('div');
+      resendDiv.className = 'alert alert-warning mt-3';
+      resendDiv.innerHTML = `
+        <div class="d-flex align-items-center">
+          <i class="bi bi-envelope-exclamation me-2"></i>
+          <div class="flex-grow-1">
+            <strong>Email nije verifikovan!</strong><br>
+            <small>Proverite svoj email i kliknite na link za verifikaciju.</small>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-warning mt-2 w-100" onclick="resendVerification('${email}')">
+          <i class="bi bi-envelope-arrow-up"></i> Pošaljite verification email ponovo
+        </button>
+      `;
+      
+      const loginForm = document.querySelector('.login-form');
+      loginForm.appendChild(resendDiv);
+    }
+
+    // Enhanced resend verification function
+    function resendVerification(email) {
+      const button = event.target;
+      const originalText = button.innerHTML;
+      
+      button.disabled = true;
+      button.innerHTML = '<span class="loading-spinner"></span> Šalje se...';
+      
+      const formData = new FormData();
+      formData.append('email', email);
+      
+      fetch('/resend-verification', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        showMessage(data.message, data.success ? 'success' : 'error');
+        if (data.success) {
+          button.innerHTML = '<i class="bi bi-check"></i> Poslato!';
+          setTimeout(() => {
+            button.closest('.alert').remove();
+          }, 3000);
+        }
+      })
+      .catch(error => {
+        showMessage('Greška pri slanju email-a! Pokušajte ponovo.', 'error');
+      })
+      .finally(() => {
+        if (button.innerHTML.includes('Šalje se...')) {
+          button.disabled = false;
+          button.innerHTML = originalText;
+        }
+      });
+    }
+
+    // Enhanced forgot password
+    document.getElementById('forgotPassword').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Create modal for forgot password
+      const modal = document.createElement('div');
+      modal.className = 'modal fade';
+      modal.innerHTML = `
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">
+                <i class="bi bi-key"></i> Resetovanje lozinke
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <p>Unesite vašu email adresu i poslaćemo vam link za resetovanje lozinke.</p>
+              <div class="mb-3">
+                <label for="resetEmail" class="form-label">Email adresa</label>
+                <input type="email" class="form-control" id="resetEmail" placeholder="vasa@email.com" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+              <button type="button" class="btn btn-primary" onclick="sendResetEmail()">
+                <i class="bi bi-send"></i> Pošalji
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      const bootstrapModal = new bootstrap.Modal(modal);
+      bootstrapModal.show();
+      
+      // Remove modal when hidden
+      modal.addEventListener('hidden.bs.modal', () => {
+        modal.remove();
+      });
+    });
+
+    // Send reset email function
+    function sendResetEmail() {
+      const email = document.getElementById('resetEmail').value.trim();
+      
+      if (!email) {
+        alert('Molimo unesite email adresu!');
+        return;
+      }
+      
+      if (!isValidEmail(email)) {
+        alert('Molimo unesite validnu email adresu!');
+        return;
+      }
+      
+      // Here you would typically send the request to your server
+      alert('Funkcionalnost za resetovanje lozinke će biti implementirana uskoro!\n\nEmail: ' + email);
+      
+      // Close modal
+      const modal = bootstrap.Modal.getInstance(document.querySelector('.modal'));
+      modal.hide();
+    }
+
+    // Email validation helper
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Input animations
+    document.querySelectorAll('.form-control').forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+      });
+      
+      input.addEventListener('blur', function() {
+        if (!this.value) {
+          this.parentElement.classList.remove('focused');
+        }
+      });
+    });
+
+    // Add shake animation CSS
+    const shakeCSS = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+      }
+      
+      @keyframes slideOutUp {
+        from {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+      }
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = shakeCSS;
+    document.head.appendChild(style);
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Enter key to submit form
+      if (e.key === 'Enter' && !e.shiftKey && !e.ctrlKey) {
+        const activeElement = document.activeElement;
+        if (activeElement.tagName === 'INPUT' && activeElement.closest('#loginForm')) {
+          e.preventDefault();
+          document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+        }
+      }
+      
+      // Escape key to clear alerts
+      if (e.key === 'Escape') {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => alert.remove());
+      }
+    });
+
+    // Auto-focus first input on page load
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.getElementById('username').focus();
+      }, 500);
+    });
+
+    // Form field enhancements
+    document.querySelectorAll('.form-control').forEach(input => {
+      // Add floating label effect
+      input.addEventListener('input', function() {
+        if (this.value.length > 0) {
+          this.classList.add('has-value');
+        } else {
+          this.classList.remove('has-value');
+        }
+      });
+
+      // Add character counter for password
+      if (input.type === 'password') {
+        const counter = document.createElement('small');
+        counter.className = 'text-muted password-strength';
+        counter.style.display = 'block';
+        counter.style.marginTop = '5px';
+        input.parentElement.appendChild(counter);
+
+        input.addEventListener('input', function() {
+          const length = this.value.length;
+          let strength = '';
+          let color = '';
+
+      
+
+          counter.textContent = strength;
+          counter.style.color = color;
+        });
+      }
+    });
+
+    // Add loading states for better UX
+    function showPageLoading() {
+      const loader = document.createElement('div');
+      loader.id = 'pageLoader';
+      loader.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          backdrop-filter: blur(5px);
+        ">
+          <div style="text-align: center;">
+            <div class="loading-spinner" style="width: 40px; height: 40px; border-width: 4px; margin: 0 auto 15px;"></div>
+            <p style="color: var(--primary-color); font-weight: 600;">Učitava se...</p>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(loader);
+    }
+
+    function hidePageLoading() {
+      const loader = document.getElementById('pageLoader');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 300);
+      }
+    }
+
+    // Enhanced form submission with better error handling
+    function handleFormSubmission(formData, submitBtn, originalText) {
+      return fetch('/', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.success) {
+          showMessage(data.message || 'Uspešno ste se prijavili!', 'success');
+          
+          // Success animation
+          submitBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Uspešno!';
+          submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+          
+          // Store login state
+          if (document.getElementById('remember').checked) {
+            localStorage.setItem('rememberLogin', 'true');
+            localStorage.setItem('username', document.getElementById('username').value);
+          }
+          
+          setTimeout(() => {
+            showPageLoading();
+            setTimeout(() => {
+              if (data.redirect) {
+                window.location.href = data.redirect;
+              } else {
+                window.location.reload();
+              }
+            }, 500);
+          }, 1500);
+          
+        } else {
+          throw new Error(data.message || 'Neispravni podaci za prijavu');
+        }
+      })
+      .catch(error => {
+        console.error('Login error:', error);
+        
+        let errorMessage = 'Greška pri prijavi!';
+        if (error.message.includes('HTTP error')) {
+          errorMessage = 'Greška servera. Molimo pokušajte ponovo.';
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+        
+        showMessage(errorMessage, 'error');
+        
+        // Error animation
+        document.querySelector('.login-container').style.animation = 'shake 0.5s ease-in-out';
+        setTimeout(() => {
+          document.querySelector('.login-container').style.animation = '';
+        }, 500);
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.background = '';
+      });
+    }
+
+    // Remember me functionality
+    window.addEventListener('load', function() {
+      if (localStorage.getItem('rememberLogin') === 'true') {
+        const savedUsername = localStorage.getItem('username');
+        if (savedUsername) {
+          document.getElementById('username').value = savedUsername;
+          document.getElementById('remember').checked = true;
+          document.getElementById('username').classList.add('has-value');
+          // Focus password field instead
+          setTimeout(() => {
+            document.getElementById('password').focus();
+          }, 500);
+        }
+      }
+    });
+
+    // Clear remember me on logout
+    function clearRememberMe() {
+      localStorage.removeItem('rememberLogin');
+      localStorage.removeItem('username');
+    }
+
+    // Add tooltips for better UX
+    function initTooltips() {
+      const tooltipElements = [
+        { element: '.password-toggle', text: 'Prikaži/sakrij lozinku' },
+        { element: '#remember', text: 'Zapamti me na ovom uređaju' },
+        { element: '.btn-login', text: 'Kliknite ili pritisnite Enter' }
+      ];
+
+      tooltipElements.forEach(({ element, text }) => {
+        const el = document.querySelector(element);
+        if (el) {
+          el.setAttribute('title', text);
+          el.setAttribute('data-bs-toggle', 'tooltip');
+        }
+      });
+
+      // Initialize Bootstrap tooltips
+      if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+      }
+    }
+
+    // Initialize tooltips when page loads
+    document.addEventListener('DOMContentLoaded', initTooltips);
+
+    // Add smooth scrolling for better navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add network status detection
+    function checkNetworkStatus() {
+      if (!navigator.onLine) {
+        showMessage('Nema internet konekcije! Proverite vašu konekciju.', 'error');
+        return false;
+      }
+      return true;
+    }
+
+    window.addEventListener('online', () => {
+      showMessage('Internet konekcija je uspostavljena!', 'success');
+    });
+
+    window.addEventListener('offline', () => {
+      showMessage('Izgubljena je internet konekcija!', 'error');
+    });
+
+    // Enhanced security features
+    let loginAttempts = 0;
+    const maxAttempts = 5;
+    const lockoutTime = 15 * 60 * 1000; // 15 minutes
+
+    function checkLoginAttempts() {
+      const attempts = localStorage.getItem('loginAttempts');
+      const lastAttempt = localStorage.getItem('lastFailedLogin');
+      
+      if (attempts && lastAttempt) {
+        const attemptsCount = parseInt(attempts);
+        const lastAttemptTime = parseInt(lastAttempt);
+        const now = Date.now();
+        
+        if (attemptsCount >= maxAttempts && (now - lastAttemptTime) < lockoutTime) {
+          const remainingTime = Math.ceil((lockoutTime - (now - lastAttemptTime)) / 60000);
+          showMessage(`Previše neuspešnih pokušaja! Pokušajte ponovo za ${remainingTime} minuta.`, 'error');
+          document.getElementById('loginForm').style.pointerEvents = 'none';
+          document.getElementById('loginForm').style.opacity = '0.5';
+          return false;
+        } else if ((now - lastAttemptTime) >= lockoutTime) {
+          // Reset attempts after lockout period
+          localStorage.removeItem('loginAttempts');
+          localStorage.removeItem('lastFailedLogin');
+        }
+      }
+      return true;
+    }
+
+    function recordFailedAttempt() {
+      const attempts = parseInt(localStorage.getItem('loginAttempts') || '0') + 1;
+      localStorage.setItem('loginAttempts', attempts.toString());
+      localStorage.setItem('lastFailedLogin', Date.now().toString());
+      
+      if (attempts >= maxAttempts) {
+        showMessage(`Previše neuspešnih pokušaja! Nalog je privremeno zaključan.`, 'error');
+        document.getElementById('loginForm').style.pointerEvents = 'none';
+        document.getElementById('loginForm').style.opacity = '0.5';
+      } else {
+        const remaining = maxAttempts - attempts;
+        showMessage(`Neispravni podaci! Preostalo pokušaja: ${remaining}`, 'error');
+      }
+    }
+
+    function clearFailedAttempts() {
+      localStorage.removeItem('loginAttempts');
+      localStorage.removeItem('lastFailedLogin');
+    }
+
+    // Check login attempts on page load
+    document.addEventListener('DOMContentLoaded', checkLoginAttempts);
+
+    // Add performance monitoring
+    function logPerformance() {
+      if ('performance' in window) {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+          }, 0);
+        });
+      }
+    }
+
+    logPerformance();
+
+    // Add accessibility improvements
+    function improveAccessibility() {
+      // Add ARIA labels
+      document.getElementById('username').setAttribute('aria-describedby', 'username-help');
+      document.getElementById('password').setAttribute('aria-describedby', 'password-help');
+      
+      // Add screen reader announcements
+      const announcer = document.createElement('div');
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.setAttribute('aria-atomic', 'true');
+      announcer.className = 'sr-only';
+      announcer.id = 'announcer';
+      document.body.appendChild(announcer);
+      
+      // Announce form errors to screen readers
+      const originalShowMessage = window.showMessage;
+      window.showMessage = function(message, type) {
+        originalShowMessage(message, type);
+        announcer.textContent = `${type === 'success' ? 'Uspeh' : 'Greška'}: ${message}`;
+      };
+    }
+
+    improveAccessibility();
+
+    console.log('🌱 AgriCulture Login System initialized successfully!');
+  </script>
+
+  <!-- Additional CSS for enhanced animations -->
+  <style>
+    .form-control.has-value {
+      background: white;
+      border-color: var(--primary-color);
+    }
+
+    .password-strength {
+      font-size: 12px;
+      transition: var(--transition);
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    /* Enhanced mobile responsiveness */
+    @media (max-width: 480px) {
+      .login-header h2 {
+        font-size: 24px;
+      }
+      
+      .form-control {
+        padding: 12px 15px;
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
+      
+      .btn-login {
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --light-bg: rgba(33, 37, 41, 0.95);
+      }
+      
+      .login-form {
+        background: #2d3748;
+        color: #e2e8f0;
+      }
+      
+      .form-control {
+        background: #4a5568;
+        border-color: #718096;
+        color: #e2e8f0;
+      }
+      
+      .form-control:focus {
+        background: #2d3748;
+        border-color: var(--primary-color);
+        color: #e2e8f0;
+      }
+      
+      .form-label {
+        color: #a0aec0;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .login-section {
+        background: white !important;
+      }
+      
+      .social-links,
+      .password-toggle,
+      .btn-login {
+        display: none !important;
+      }
+    }
+  </style>
+</body>
+</html> 

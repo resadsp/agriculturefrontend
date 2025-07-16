@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Registracija - AgriCulture</title>
+  <meta name="description" content="Registrujte se na AgriCulture platformi">
+  <meta name="keywords" content="registracija, poljoprivreda, agriculture">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="static/img/logo.png" alt="AgriCulture">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/">Prijava</a></li>
+          <li><a href="register.html"class="active" >Registracija</a></li>
+          <li><a href="homepage.html">O nama</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="container">
+      <div class="progress-bar-custom">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text" id="progressText">Korak 1 od 4: Osnovni podaci</div>
+    </div>
+  </div>
+
+  <main class="main">
+    <section class="register-section">
+      <div class="container">
+        <div class="register-container">
+          <div class="register-header">
+            <h2><i class="bi bi-person-plus"></i> Registracija</h2>
+            <div class="subtitle">Pridružite se našoj zajednici poljoprivrednika</div>
+          </div>
+          
+          <div class="register-form">
+            <form id="registerForm" method="POST" novalidate>
+              <!-- Osnovni podaci -->
+              <div class="section-title">
+                <i class="bi bi-person"></i> Osnovni podaci
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="firstName" class="form-label">Ime *</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" data-field="required" required>
+                    <div class="valid-feedback">Odlično!</div>
+                    <div class="invalid-feedback">Molimo unesite vaše ime.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="lastName" class="form-label">Prezime *</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" data-field="required" required>
+                    <div class="valid-feedback">Odlično!</div>
+                    <div class="invalid-feedback">Molimo unesite vaše prezime.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email adresa *</label>
+                    <input type="email" class="form-control" id="email" name="email" data-field="required" required>
+                    <div class="valid-feedback">Email je u redu!</div>
+                    <div class="invalid-feedback">Molimo unesite validnu email adresu.</div>
+                    <div class="availability-check" id="emailAvailability"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Broj telefona *</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+381 xx xxx xxxx" data-field="required" required>
+                    <div class="valid-feedback">Broj telefona je u redu!</div>
+                    <div class="invalid-feedback">Molimo unesite broj telefona.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Adresa -->
+              <div class="section-title">
+                <i class="bi bi-geo-alt"></i> Adresa
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="city" class="form-label">Grad *</label>
+                    <select class="form-control" id="city" name="city" data-field="required" required>
+                      <option value="">Izaberite grad</option>
+                      <option value="1" data-postal="11000">Beograd</option>
+                      <option value="2" data-postal="21000">Novi Sad</option>
+                      <option value="3" data-postal="18000">Niš</option>
+                      <option value="4" data-postal="34000">Kragujevac</option>
+                      <option value="5" data-postal="24000">Subotica</option>
+                      <option value="6" data-postal="26000">Pančevo</option>
+                      <option value="7" data-postal="32000">Čačak</option>
+                      <option value="8" data-postal="36300">Novi Pazar</option>
+                      <option value="9" data-postal="23000">Zrenjanin</option>
+                      <option value="10" data-postal="16000">Leskovac</option>
+                    </select>
+                    <div class="valid-feedback">Odlično!</div>
+                    <div class="invalid-feedback">Molimo izaberite grad.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="postalCode" class="form-label">Poštanski broj *</label>
+                    <input type="text" class="form-control" id="postalCode" name="postalCode" readonly data-field="required" required>
+                    <div class="valid-feedback">Odlično!</div>
+                    <div class="invalid-feedback">Poštanski broj se automatski popunjava.</div>
+                  </div>
+                </div>
+              </div>
+
+                <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="street" class="form-label">Ulica*</label>
+                    <input type="text" class="form-control" id="street" name="street" data-field="required" required>
+                    <div class="valid-feedback">Ulica je u redu!</div>
+                    <div class="availability-check" id="emailAvailability"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="houseNumber" class="form-label">Broj kuce ili stana *</label>
+                    <input type="text" class="form-control" id="houseNumber" name="houseNumber" data-field="required" required>
+                    <div class="valid-feedback">Broj kuce ili stana je u redu!</div>
+                    <div class="invalid-feedback">Molimo unesite broj kuce.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Korisnički podaci -->
+              <div class="section-title">
+                <i class="bi bi-key"></i> Korisnički podaci
+              </div>
+
+              <div class="form-group">
+                <label for="username" class="form-label">Korisničko ime *</label>
+                <input type="text" class="form-control" id="username" name="username" data-field="required" required>
+                <div class="valid-feedback">Korisničko ime je dostupno!</div>
+                <div class="invalid-feedback">Korisničko ime mora imati najmanje 3 karaktera.</div>
+                <div class="availability-check" id="usernameAvailability"></div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="password" class="form-label">Lozinka *</label>
+                    <input type="password" class="form-control" id="password" name="password" data-field="required" required>
+                    <div class="password-strength" id="passwordStrength">
+                      <div class="strength-bar">
+                        <div class="strength-fill" id="strengthFill"></div>
+                      </div>
+                      <div class="strength-text" id="strengthText">Unesite lozinku</div>
+                    </div>
+                    <div class="invalid-feedback">Lozinka mora imati najmanje 6 karaktera.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="confirmPassword" class="form-label">Potvrdite lozinku *</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" data-field="required" required>
+                    <div class="valid-feedback">Lozinke se poklapaju!</div>
+                    <div class="invalid-feedback">Lozinke se ne poklapaju.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tip korisnika -->
+              <div class="section-title">
+                <i class="bi bi-people"></i> Tip korisnika
+              </div>
+
+              <div class="form-group">
+                <label for="userType" class="form-label">Tip korisnika *</label>
+                <select class="form-control" id="userType" name="userType" data-field="required" required>
+                  <option value="">Izaberite tip korisnika</option>
+                  <option value="1">Kupac</option>
+                  <option value="2">Poljoprivrednik</option>
+                  <option value="3">Dobavljač</option>
+                  <option value="4">Savetnik</option>
+                </select>
+                <div class="valid-feedback">Odlično!</div>
+                <div class="invalid-feedback">Molimo izaberite tip korisnika.</div>
+              </div>
+
+              <!-- Gazdinstvo -->
+              <div class="form-group">
+                <label class="form-label">Da li imate registrovano poljoprivredno gazdinstvo? *</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="hasFarm" id="hasFarmYes" value="1" data-field="required" required>
+                  <label class="form-check-label" for="hasFarmYes">
+                    Da, imam registrovano gazdinstvo
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="hasFarm" id="hasFarmNo" value="0" data-field="required" required>
+                  <label class="form-check-label" for="hasFarmNo">
+                    Ne, nemam registrovano gazdinstvo
+                  </label>
+                </div>
+                <div class="invalid-feedback">Molimo izaberite opciju.</div>
+              </div>
+
+              <!-- Podaci o gazdinstvu -->
+              <div class="farm-fields" id="farmFields">
+                <div class="section-title">
+                  <i class="bi bi-house"></i> Podaci o gazdinstvu
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="rpgNumber" class="form-label">RPG broj *</label>
+                      <input type="text" class="form-control" id="rpgNumber" name="rpgNumber" placeholder="npr. 1234567890123" data-field="farm">
+                      <div class="valid-feedback">RPG broj je u redu!</div>
+                      <div class="invalid-feedback">Molimo unesite RPG broj (13 cifara).</div>
+                      <div class="availability-check" id="rpgAvailability"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="farmId" class="form-label">ID gazdinstva *</label>
+                      <input type="text" class="form-control" id="farmId" name="farmId" placeholder="npr. RS-12345" data-field="farm">
+                      <div class="valid-feedback">Odlično!</div>
+                      <div class="invalid-feedback">Molimo unesite ID gazdinstva.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="farmName" class="form-label">Naziv gazdinstva *</label>
+                  <input type="text" class="form-control" id="farmName" name="farmName" placeholder="Naziv vašeg gazdinstva" data-field="farm">
+                  <div class="valid-feedback">Odlično!</div>
+                  <div class="invalid-feedback">Molimo unesite naziv gazdinstva.</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="farmSize" class="form-label">Veličina gazdinstva (hektari) *</label>
+                      <input type="number" class="form-control" id="farmSize" name="farmSize" placeholder="npr. 10.5" step="0.1" min="0" data-field="farm">
+                      <div class="valid-feedback">Odlično!</div>
+                      <div class="invalid-feedback">Molimo unesite veličinu gazdinstva.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="farmType" class="form-label">Tip gazdinstva *</label>
+                      <select class="form-control" id="farmType" name="farmType" data-field="farm">
+                        <option value="">Izaberite tip gazdinstva</option>
+                        <option value="1">Fizičko lice</option>
+                        <option value="2">Pravno lice</option>
+                        <option value="3">Preduzetnik</option>
+                      </select>
+                      <div class="valid-feedback">Odlično!</div>
+                      <div class="invalid-feedback">Molimo izaberite tip gazdinstva.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="cropTypes" class="form-label">Vrste useva *</label>
+                      <select class="form-control" id="cropTypes" name="cropTypes" data-field="farm">
+                        <option value="">Izaberite glavne useve</option>
+                        <option value="1">Žitarice (pšenica, kukuruz, ječam)</option>
+                        <option value="2">Industrijske biljke (suncokret, soja, šećerna repa)</option>
+                        <option value="3">Povrće (paradajz, paprika, krastavac)</option>
+                        <option value="4">Voće (jabuka, šljiva, grožđe)</option>
+                        <option value="5">Stočarstvo (goveda, svinje, ovce)</option>
+                        <option value="6">Živinarstvo (kokoške, ćurke, patke)</option>
+                        <option value="7">Mešovito gazdinstvo</option>
+                      </select>
+                      <div class="valid-feedback">Odlično!</div>
+                      <div class="invalid-feedback">Molimo izaberite vrste useva.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="productionType" class="form-label">Tip proizvodnje *</label>
+                      <select class="form-control" id="productionType" name="productionType" data-field="farm">
+                        <option value="">Izaberite tip proizvodnje</option>
+                        <option value="1">Konvencionalna proizvodnja</option>
+                        <option value="2">Organska proizvodnja</option>
+                        <option value="3">Integrisana proizvodnja</option>
+                        <option value="4">Tradicionalna proizvodnja</option>
+                      </select>
+                      <div class="valid-feedback">Odlično!</div>
+                      <div class="invalid-feedback">Molimo izaberite tip proizvodnje.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="annualProduction" class="form-label">Godišnja proizvodnja (tone) *</label>
+                      <input type="number" class="form-control" id="annualProduction" name="annualProduction" placeholder="npr. 50" min="0" step="0.1" data-field="farm">
+                      <div class="valid-feedback">Odlično!</div>
+                      <div class="invalid-feedback">Molimo unesite godišnju proizvodnju.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="employeeCount" class="form-label">Broj zaposlenih</label>
+                      <input type="number" class="form-control" id="employeeCount" name="employeeCount" placeholder="npr. 5" min="0">
+                      <small class="form-text text-muted">Uključujući vlasnika/vlasnike</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="description" class="form-label">Opis gazdinstva</label>
+                  <textarea class="form-control" id="description" name="description" rows="3" placeholder="Kratko opišite vaše gazdinstvo i glavne aktivnosti..."></textarea>
+                </div>
+              </div>
+
+              <!-- Uslovi korišćenja -->
+              <div class="section-title">
+                <i class="bi bi-shield-check"></i> Uslovi korišćenja
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="terms" name="terms" data-field="required" required>
+                  <label class="form-check-label" for="terms">
+                    Slažem se sa <a href="uslovi-koriscenja.html">uslovima korišćenja</a> i <a href="politika-privatnosti.html">politikom privatnosti</a> *
+                  </label>
+                  <div class="invalid-feedback">Morate prihvatiti uslove korišćenja.</div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-register" id="submitBtn">
+                <span id="submitText"><i class="bi bi-person-check"></i> Registruj se</span>
+                <span id="submitLoading" style="display: none;"><span class="loading"></span> Registracija u toku...</span>
+              </button>
+            </form>
+
+            <div class="login-link">
+              <p style="font-size: 14px;">Već imate nalog? <a href="index.html">Prijavite se ovde</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Autorska prava <strong><span>AgriCulture</span></strong>. Sva prava zadržana
+          </div>
+          <div class="credits">
+            Dizajnirao <a href="https://resadspahovic.netlify.app/">Resad Spahovic</a>
+          </div>
+        </div>
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href="" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="background-color: #28a745;">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('registerForm');
+      const progressFill = document.getElementById('progressFill');
+      const progressText = document.getElementById('progressText');
+      const farmFields = document.getElementById('farmFields');
+      const submitBtn = document.getElementById('submitBtn');
+      const submitText = document.getElementById('submitText');
+      const submitLoading = document.getElementById('submitLoading');
+
+      // Auto-populate postal code based on city selection
+      document.getElementById('city').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const postalCode = selectedOption.getAttribute('data-postal');
+        const postalCodeField = document.getElementById('postalCode');
+        
+        if (postalCode) {
+          postalCodeField.value = postalCode;
+          validateField(postalCodeField);
+        } else {
+          postalCodeField.value = '';
+        }
+      });
+
+      // Show/hide farm fields based on farm ownership
+      function toggleFarmFields() {
+        const hasFarmYes = document.getElementById('hasFarmYes');
+        const hasFarmNo = document.getElementById('hasFarmNo');
+        
+        if (hasFarmYes.checked) {
+          farmFields.classList.add('show');
+          // Make farm fields required
+          const farmInputs = farmFields.querySelectorAll('input[data-field="farm"], select[data-field="farm"]');
+          farmInputs.forEach(input => {
+            if (!input.hasAttribute('data-optional')) {
+              input.setAttribute('required', 'required');
+            }
+          });
+        } else if (hasFarmNo.checked) {
+          farmFields.classList.remove('show');
+          // Remove required attribute from farm fields
+          const farmInputs = farmFields.querySelectorAll('input[data-field="farm"], select[data-field="farm"]');
+          farmInputs.forEach(input => {
+            input.removeAttribute('required');
+            input.classList.remove('is-valid', 'is-invalid');
+          });
+        }
+        updateProgress();
+      }
+
+      // Add event listeners for farm radio buttons
+      document.getElementById('hasFarmYes').addEventListener('change', toggleFarmFields);
+      document.getElementById('hasFarmNo').addEventListener('change', toggleFarmFields);
+
+      // Progress calculation
+      function updateProgress() {
+        const allFields = form.querySelectorAll('input[required], select[required]');
+        const farmFieldsVisible = farmFields.classList.contains('show');
+        
+        let totalFields = 0;
+        let completedFields = 0;
+        
+        allFields.forEach(field => {
+          // Skip farm fields if not visible
+          if (field.getAttribute('data-field') === 'farm' && !farmFieldsVisible) {
+            return;
+          }
+          
+          totalFields++;
+          
+          if (field.type === 'radio') {
+            const radioGroup = form.querySelectorAll(`input[name="${field.name}"]`);
+            const isChecked = Array.from(radioGroup).some(radio => radio.checked);
+            if (isChecked) completedFields++;
+          } else if (field.type === 'checkbox') {
+            if (field.checked) completedFields++;
+          } else {
+            if (field.value.trim() !== '') completedFields++;
+          }
+        });
+
+        const progress = totalFields > 0 ? (completedFields / totalFields) * 100 : 0;
+        progressFill.style.width = progress + '%';
+        
+        // Update progress text based on completion
+        if (progress < 25) {
+          progressText.textContent = 'Korak 1 od 4: Osnovni podaci';
+        } else if (progress < 50) {
+          progressText.textContent = 'Korak 2 od 4: Adresa i kontakt';
+        } else if (progress < 75) {
+          progressText.textContent = 'Korak 3 od 4: Korisnički podaci';
+        } else if (progress < 100) {
+          progressText.textContent = 'Korak 4 od 4: Finalizacija';
+        } else {
+          progressText.textContent = 'Forma je kompletna - spremna za slanje!';
+        }
+      }
+
+      // Add typing indicators
+      form.addEventListener('input', function(e) {
+        if (e.target.matches('input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], textarea')) {
+          e.target.classList.add('user-typing');
+          e.target.classList.remove('user-interacted');
+          
+          // Remove typing class after user stops typing
+          clearTimeout(e.target.typingTimer);
+          e.target.typingTimer = setTimeout(() => {
+            e.target.classList.remove('user-typing');
+            e.target.classList.add('user-interacted');
+            validateField(e.target);
+          }, 500);
+        }
+      });
+
+      // Field validation function
+      function validateField(field) {
+        const fieldName = field.name || field.id;
+        let isValid = true;
+        let message = '';
+
+        // Clear previous validation classes
+        field.classList.remove('is-valid', 'is-invalid');
+
+        // Skip validation for optional fields that are empty
+        if (!field.hasAttribute('required') && field.value.trim() === '') {
+          updateProgress();
+          return true;
+        }
+
+        switch (fieldName) {
+          case 'firstName':
+          case 'lastName':
+            isValid = field.value.trim().length >= 2;
+            message = isValid ? 'Odlično!' : 'Mora imati najmanje 2 karaktera.';
+            break;
+
+          case 'email':
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            isValid = emailRegex.test(field.value);
+            message = isValid ? 'Email je u redu!' : 'Molimo unesite validnu email adresu.';
+            if (isValid) {
+              checkEmailAvailability(field.value);
+            }
+            break;
+
+          case 'phone':
+            const phoneRegex = /^(\+381|0)[0-9]{8,9}$/;
+            isValid = phoneRegex.test(field.value.replace(/\s/g, ''));
+            message = isValid ? 'Broj telefona je u redu!' : 'Unesite u redu broj telefona.';
+            break;
+
+          case 'city':
+          case 'userType':
+          case 'farmType':
+          case 'cropTypes':
+          case 'productionType':
+          case 'street':
+          case 'houseNumber':
+            isValid = field.value !== '';
+            message = isValid ? 'Odlično!' : 'Molimo napravite izbor.';
+            break;
+
+          case 'postalCode':
+            isValid = field.value.trim().length === 5;
+            message = isValid ? 'Odlično!' : 'Poštanski broj mora imati 5 cifara.';
+            break;
+
+          case 'username':
+            isValid = field.value.trim().length >= 3;
+            message = isValid ? 'Korisničko ime je dostupno!' : 'Mora imati najmanje 3 karaktera.';
+            if (isValid) {
+              checkUsernameAvailability(field.value);
+            }
+            break;
+
+          case 'password':
+            isValid = field.value.length >= 6;
+            message = isValid ? 'Lozinka je prihvaćena!' : 'Mora imati najmanje 6 karaktera.';
+            updatePasswordStrength(field.value);
+            // Also validate confirm password if it has value
+            const confirmPassword = document.getElementById('confirmPassword');
+            if (confirmPassword.value) {
+              validateField(confirmPassword);
+            }
+            break;
+
+          case 'confirmPassword':
+            const password = document.getElementById('password').value;
+            isValid = field.value === password && field.value.length > 0;
+            message = isValid ? 'Lozinke se poklapaju!' : 'Lozinke se ne poklapaju.';
+            break;
+
+          case 'rpgNumber':
+            if (farmFields.classList.contains('show')) {
+              const rpgRegex = /^[0-9]{13}$/;
+              isValid = rpgRegex.test(field.value);
+              message = isValid ? 'RPG broj je u redu!' : 'RPG broj mora imati tačno 13 cifara.';
+              if (isValid) {
+                checkRpgAvailability(field.value);
+              }
+            }
+            break;
+
+          case 'farmId':
+          case 'farmName':
+            if (farmFields.classList.contains('show')) {
+              isValid = field.value.trim().length >= 2;
+              message = isValid ? 'Odlično!' : 'Mora imati najmanje 2 karaktera.';
+            }
+            break;
+
+          case 'farmSize':
+          case 'annualProduction':
+            if (farmFields.classList.contains('show')) {
+              isValid = field.value && parseFloat(field.value) > 0;
+              message = isValid ? 'Odlično!' : 'Vrednost mora biti veća od 0.';
+            }
+            break;
+
+          case 'hasFarm':
+            const hasFarmChecked = form.querySelector('input[name="hasFarm"]:checked');
+            isValid = hasFarmChecked !== null;
+            break;
+
+          case 'terms':
+            isValid = field.checked;
+            break;
+
+          default:
+            if (field.hasAttribute('required')) {
+              isValid = field.value.trim() !== '';
+            }
+        }
+
+        // Apply validation classes and messages
+        if (field.type === 'radio') {
+          const radioGroup = form.querySelectorAll(`input[name="${fieldName}"]`);
+          const groupContainer = radioGroup[0].closest('.form-group');
+          const invalidFeedback = groupContainer.querySelector('.invalid-feedback');
+          
+          if (isValid) {
+            radioGroup.forEach(radio => {
+              radio.classList.remove('is-invalid');
+              radio.classList.add('is-valid');
+            });
+            if (invalidFeedback) invalidFeedback.style.display = 'none';
+          } else {
+            radioGroup.forEach(radio => {
+              radio.classList.remove('is-valid');
+              radio.classList.add('is-invalid');
+            });
+            if (invalidFeedback) invalidFeedback.style.display = 'block';
+          }
+        } else {
+          if (isValid) {
+            field.classList.add('is-valid');
+            field.classList.remove('is-invalid');
+          } else {
+            field.classList.add('is-invalid');
+            field.classList.remove('is-valid');
+          }
+
+          // Update feedback message
+          const validFeedback = field.parentNode.querySelector('.valid-feedback');
+          const invalidFeedback = field.parentNode.querySelector('.invalid-feedback');
+          
+          if (validFeedback && isValid) {
+            validFeedback.textContent = message;
+          }
+          if (invalidFeedback && !isValid) {
+            invalidFeedback.textContent = message;
+          }
+        }
+
+        updateProgress();
+        return isValid;
+      }
+
+      // Password strength checker
+      function updatePasswordStrength(password) {
+        const strengthFill = document.getElementById('strengthFill');
+        const strengthText = document.getElementById('strengthText');
+        
+        if (!password) {
+          strengthFill.className = 'strength-fill';
+          strengthText.textContent = 'Unesite lozinku';
+          return;
+        }
+
+        let score = 0;
+        let feedback = [];
+
+        // Length check
+        if (password.length >= 8) score += 1;
+        else feedback.push('najmanje 8 karaktera');
+
+        // Uppercase check
+        if (/[A-Z]/.test(password)) score += 1;
+        else feedback.push('veliko slovo');
+
+        // Lowercase check
+        if (/[a-z]/.test(password)) score += 1;
+        else feedback.push('malo slovo');
+
+        // Number check
+        if (/[0-9]/.test(password)) score += 1;
+        else feedback.push('broj');
+
+        // Special character check
+        if (/[^A-Za-z0-9]/.test(password)) score += 1;
+        else feedback.push('specijalni karakter');
+
+        // Update visual indicator
+        strengthFill.className = 'strength-fill';
+        
+        if (score <= 1) {
+          strengthFill.classList.add('strength-weak');
+          strengthText.textContent = 'Slaba lozinka';
+          strengthText.style.color = 'var(--danger-color)';
+        } else if (score <= 2) {
+          strengthFill.classList.add('strength-fair');
+          strengthText.textContent = 'Osrednja lozinka';
+          strengthText.style.color = 'var(--warning-color)';
+        } else if (score <= 3) {
+          strengthFill.classList.add('strength-good');
+          strengthText.textContent = 'Dobra lozinka';
+          strengthText.style.color = 'var(--info-color)';
+        } else {
+          strengthFill.classList.add('strength-strong');
+          strengthText.textContent = 'Jaka lozinka';
+          strengthText.style.color = 'var(--success-color)';
+        }
+
+        if (feedback.length > 0 && score < 4) {
+          strengthText.textContent += ` (dodajte: ${feedback.join(', ')})`;
+        }
+      }
+
+      // Availability checkers
+      function checkEmailAvailability(email) {
+        const availabilityDiv = document.getElementById('emailAvailability');
+        availabilityDiv.className = 'availability-check checking';
+        availabilityDiv.textContent = 'Proverava se dostupnost...';
+
+        // Simulate API call
+        setTimeout(() => {
+          const isAvailable = !['test@example.com', 'admin@test.com'].includes(email.toLowerCase());
+          
+          if (isAvailable) {
+            availabilityDiv.className = 'availability-check available';
+            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Email je dostupan';
+          } else {
+            availabilityDiv.className = 'availability-check unavailable';
+            availabilityDiv.innerHTML = '<i class="bi bi-x-circle"></i> Email je već registrovan';
+            document.getElementById('email').classList.add('is-invalid');
+            document.getElementById('email').classList.remove('is-valid');
+          }
+        }, 1000);
+      }
+
+      function checkUsernameAvailability(username) {
+        const availabilityDiv = document.getElementById('usernameAvailability');
+        availabilityDiv.className = 'availability-check checking';
+        availabilityDiv.textContent = 'Proverava se dostupnost...';
+
+        // Simulate API call
+        setTimeout(() => {
+          const isAvailable = !['admin', 'test', 'user'].includes(username.toLowerCase());
+          
+          if (isAvailable) {
+            availabilityDiv.className = 'availability-check available';
+            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Korisničko ime je dostupno';
+          } else {
+            availabilityDiv.className = 'availability-check unavailable';
+            availabilityDiv.innerHTML = '<i class="bi bi-x-circle"></i> Korisničko ime je zauzeto';
+            document.getElementById('username').classList.add('is-invalid');
+            document.getElementById('username').classList.remove('is-valid');
+          }
+        }, 800);
+      }
+
+      function checkRpgAvailability(rpgNumber) {
+        const availabilityDiv = document.getElementById('rpgAvailability');
+        availabilityDiv.className = 'availability-check checking';
+        availabilityDiv.textContent = 'Proverava se RPG broj...';
+
+        // Simulate API call
+        setTimeout(() => {
+          const isAvailable = rpgNumber !== '1234567890123';
+          
+          if (isAvailable) {
+            availabilityDiv.className = 'availability-check available';
+            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> RPG broj je u redu';
+          } else {
+            availabilityDiv.className = 'availability-check unavailable';
+            availabilityDiv.innerHTML = '<i class="bi bi-x-circle"></i> RPG broj je već registrovan';
+            document.getElementById('rpgNumber').classList.add('is-invalid');
+            document.getElementById('rpgNumber').classList.remove('is-valid');
+          }
+        }, 1200);
+      }
+
+      // Add event listeners for real-time validation
+      const fieldsToValidate = form.querySelectorAll('input, select, textarea');
+      fieldsToValidate.forEach(field => {
+        // Validate on blur (when user leaves field)
+        field.addEventListener('blur', function() {
+          if (this.classList.contains('user-interacted') || this.value.trim() !== '') {
+            validateField(this);
+          }
+        });
+
+        // Validate on change for select and radio/checkbox
+        if (field.type === 'radio' || field.type === 'checkbox' || field.tagName === 'SELECT') {
+          field.addEventListener('change', function() {
+            validateField(this);
+          });
+        }
+      });
+
+      // Form submission
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate all required fields
+        let isFormValid = true;
+        const allFields = form.querySelectorAll('input, select, textarea');
+        
+        allFields.forEach(field => {
+          if (field.hasAttribute('required') || field.value.trim() !== '') {
+            // Skip farm fields if not visible
+            if (field.getAttribute('data-field') === 'farm' && !farmFields.classList.contains('show')) {
+              return;
+            }
+            
+            if (!validateField(field)) {
+              isFormValid = false;
+            }
+          }
+        });
+
+        // Check radio groups separately
+        const radioGroups = ['hasFarm'];
+        radioGroups.forEach(groupName => {
+          const checkedRadio = form.querySelector(`input[name="${groupName}"]:checked`);
+          if (!checkedRadio) {
+            isFormValid = false;
+            const radioInputs = form.querySelectorAll(`input[name="${groupName}"]`);
+            radioInputs.forEach(radio => {
+              radio.classList.add('is-invalid');
+            });
+          }
+        });
+
+        // Check availability status
+        const emailAvailability = document.getElementById('emailAvailability');
+        const usernameAvailability = document.getElementById('usernameAvailability');
+        const rpgAvailability = document.getElementById('rpgAvailability');
+
+        if (emailAvailability.classList.contains('unavailable') ||
+            usernameAvailability.classList.contains('unavailable') ||
+            (farmFields.classList.contains('show') && rpgAvailability.classList.contains('unavailable'))) {
+          isFormValid = false;
+        }
+
+        if (!isFormValid) {
+          // Scroll to first invalid field
+          const firstInvalid = form.querySelector('.is-invalid');
+          if (firstInvalid) {
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstInvalid.focus();
+          }
+          return;
+        }
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitText.style.display = 'none';
+        submitLoading.style.display = 'inline-block';
+
+        // Simulate form submission
+        setTimeout(() => {
+          // Collect form data
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+          
+          console.log('Form data:', data);
+          
+          // Show success message
+          alert('Registracija je uspešno završena! Proverite email za aktivaciju naloga.');
+          
+          // Reset form
+          form.reset();
+          progressFill.style.width = '0%';
+          progressText.textContent = 'Korak 1 od 4: Osnovni podaci';
+          farmFields.classList.remove('show');
+          
+          // Clear validation classes
+          allFields.forEach(field => {
+            field.classList.remove('is-valid', 'is-invalid', 'user-interacted', 'user-typing');
+          });
+          
+          // Clear availability checks
+          document.querySelectorAll('.availability-check').forEach(div => {
+            div.textContent = '';
+            div.className = 'availability-check';
+          });
+          
+          // Reset password strength
+          document.getElementById('strengthFill').className = 'strength-fill';
+          document.getElementById('strengthText').textContent = 'Unesite lozinku';
+          
+          // Reset button
+          submitBtn.disabled = false;
+          submitText.style.display = 'inline-block';
+          submitLoading.style.display = 'none';
+          
+        }, 2000);
+      });
+
+      // Initialize progress
+      updateProgress();
+
+      // Add smooth scrolling for better UX
+      const sections = document.querySelectorAll('.section-title');
+      sections.forEach(section => {
+        section.addEventListener('click', function() {
+          this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      // Auto-save form data to localStorage (optional)
+      function saveFormData() {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        localStorage.setItem('registerFormData', JSON.stringify(data));
+      }
+
+      function loadFormData() {
+        const savedData = localStorage.getItem('registerFormData');
+        if (savedData) {
+          try {
+            const data = JSON.parse(savedData);
+            Object.keys(data).forEach(key => {
+              const field = form.querySelector(`[name="${key}"]`);
+              if (field) {
+                if (field.type === 'radio' || field.type === 'checkbox') {
+                  if (field.value === data[key]) {
+                    field.checked = true;
+                  }
+                } else {
+                  field.value = data[key];
+                }
+              }
+            });
+            
+            // Trigger change events to update UI
+            toggleFarmFields();
+            updateProgress();
+          } catch (e) {
+            console.error('Error loading saved form data:', e);
+          }
+        }
+      }
+
+      // Auto-save every 30 seconds
+      setInterval(saveFormData, 30000);
+
+      // Load saved data on page load
+      loadFormData();
+
+      // Clear saved data on successful submission
+      form.addEventListener('submit', function() {
+        localStorage.removeItem('registerFormData');
+      });
+    });
+
+    // Initialize AOS animations
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 600,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    }
+  </script>
+</body>
+</html>

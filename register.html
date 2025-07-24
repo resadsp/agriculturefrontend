@@ -598,7 +598,7 @@
 
           case 'username':
             isValid = field.value.trim().length >= 3;
-            message = isValid ? 'Korisničko ime je dostupno!' : 'Mora imati najmanje 3 karaktera.';
+            message = isValid ? 'Korisničko ime je u redu!' : 'Mora imati najmanje 3 karaktera.';
             if (isValid) {
               checkUsernameAvailability(field.value);
             }

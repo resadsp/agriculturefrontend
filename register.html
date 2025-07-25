@@ -616,6 +616,7 @@
             message = isValid ? 'Odlično!' : 'Poštanski broj mora imati 5 cifara.';
             break;
 
+<<<<<<< HEAD
          case 'username':
   isValid = field.value.trim().length >= 3;
   message = isValid ? 'Korisničko ime je u redu!' : 'Mora imati najmanje 3 karaktera.';
@@ -630,6 +631,15 @@
   }
   break;
 
+=======
+          case 'username':
+            isValid = field.value.trim().length >= 3;
+            message = isValid ? 'Korisničko ime je u redu!' : 'Mora imati najmanje 3 karaktera.';
+            if (isValid) {
+              checkUsernameAvailability(field.value);
+            }
+            break;
+>>>>>>> fda093a10f62ab47e0952e010b0a236645760052
 
           case 'password':
             isValid = field.value.length >= 6;

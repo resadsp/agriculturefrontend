@@ -1896,7 +1896,7 @@ section,
   border-radius: 4px;
   padding: 10px 10px;
   font-size: 14px;
-  height: 120px;
+  height: 100px;
 }
 
 .comment-form form textarea:focus {
@@ -2476,23 +2476,24 @@ section,
       outline: none;
     }
 
-    .form-control.is-valid,
-    .form-select.is-valid {
-      border-color: var(--success-color);
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%2328a745' d='M6.173 12.153a.75.75 0 01-1.06 0L2.53 9.57a.75.75 0 011.06-1.061l2.033 2.032 5.814-5.815a.75.75 0 111.06 1.061l-6.324 6.326z'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 1.4rem 1.4rem;
-    }
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: var(--success-color);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%2328a745' d='M6.173 12.153a.75.75 0 01-1.06 0L2.53 9.57a.75.75 0 011.06-1.061l2.033 2.032 5.814-5.815a.75.75 0 111.06 1.061l-6.324 6.326z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.4rem 1.4rem;
+}
 
-    .form-control.is-invalid,
-    .form-select.is-invalid {
-      border-color: var(--danger-color);
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23dc3545' viewBox='0 0 16 16'%3e%3cpath stroke-linecap='round' stroke-width='2' d='M4 4l8 8M12 4L4 12'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 1.4rem 1.4rem;
-    }
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--danger-color);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23dc3545' viewBox='0 0 16 16'%3e%3cpath stroke-linecap='round' stroke-width='2' d='M4 4l8 8M12 4L4 12'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem 1rem;
+}
+
     .form-check-input.is-valid, .form-check-input.is-invalid {
       background-image: none;
     }
@@ -2654,7 +2655,7 @@ section,
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       border: none;
       color: white;
-      padding: 15px 40px;
+      padding: 13px 40px;
       font-size: 1.1rem;
       font-weight: 600;
       border-radius: 10px;
@@ -2733,7 +2734,7 @@ section,
       }
 
       .btn-register {
-        padding: 12px 30px;
+        padding: 10px 20px;
         font-size: 1rem;
       }
     }
@@ -2867,13 +2868,13 @@ section,
     }
 
     .login-form {
-      padding: 40px;
+      padding: 50px;
       background: white;
     }
        
     .form-group {
       padding: 6px 0px;
-      margin-bottom: 25px;
+      margin-bottom: 34px;
       position: relative;
     }
 
@@ -2881,16 +2882,16 @@ section,
       font-weight: 600;
       color: var(--primary-color);
       margin-bottom: 14px;
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
        
     .form-control {
-      padding: 15px 20px;
+      padding: 10px 18px;
       border: 2px solid #e8ecef;
       border-radius: 10px;
-      font-size: 16px;
+      font-size: 15px;
       transition: var(--transition);
       background: #f8f9fa;
       position: relative;
@@ -2930,8 +2931,8 @@ section,
     .btn-login {
       background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
       border: none;
-      padding: 15px 30px;
-      font-size: 16px;
+      padding: 13px 20px;
+      font-size: 15px;
       font-weight: 600;
       border-radius: 10px;
       width: 100%;
@@ -3097,7 +3098,7 @@ section,
       }
       
       .login-form {
-        padding: 30px 20px;
+        padding: 50px 20px;
       }
       
       .login-header {
@@ -3132,5 +3133,4 @@ section,
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
-
 

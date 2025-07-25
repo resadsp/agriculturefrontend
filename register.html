@@ -37,8 +37,8 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="/">Prijava</a></li>
-          <li><a href="register.html"class="active" >Registracija</a></li>
-          <li><a href="homepage.html">O nama</a></li>
+          <li><a href="/register"class="active" >Registracija</a></li>
+          <li><a href="/about">O nama</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -64,7 +64,7 @@
           </div>
           
           <div class="register-form">
-            <form id="registerForm" method="POST" novalidate>
+            <form id="registerForm" method="POST" action="/register" autocomplete="off">
               <!-- Osnovni podaci -->
               <div class="section-title">
                 <i class="bi bi-person"></i> Osnovni podaci
@@ -176,8 +176,8 @@
               <div class="form-group">
                 <label for="username" class="form-label">Korisničko ime *</label>
                 <input type="text" class="form-control" id="username" name="username" data-field="required" required>
-                <div class="valid-feedback">Korisničko ime je dostupno!</div>
-                <div class="invalid-feedback">Korisničko ime mora imati najmanje 3 karaktera.</div>
+                <div class="valid-feedback">Korisničko ime je u redu!</div>
+                <div class="invalid-feedback">Mora imati najmanje 3 karaktera.</div>
                 <div class="availability-check" id="usernameAvailability"></div>
               </div>
 
@@ -346,21 +346,30 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="employeeCount" class="form-label">Broj zaposlenih</label>
-                      <input type="number" class="form-control" id="employeeCount" name="employeeCount" placeholder="npr. 5" min="0">
-                      <small class="form-text text-muted">Uključujući vlasnika/vlasnike</small>
-                    </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="employeeCount" class="form-label">Broj zaposlenih</label>
+                    <input 
+                      type="number" 
+                      class="form-control" 
+                      id="employeeCount" 
+                      name="employeeCount" 
+                      placeholder="npr. 5" 
+                      min="0" 
+                      step="1" 
+                      required
+                      oninput="validity.valid||(this.value='');"
+                    >
+                    <small class="form-text text-muted">Uključujući vlasnika/vlasnike</small>
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="width: 94%; margin: 0 auto;">
                   <label for="description" class="form-label">Opis gazdinstva</label>
                   <textarea class="form-control" id="description" name="description" rows="3" placeholder="Kratko opišite vaše gazdinstvo i glavne aktivnosti..."></textarea>
                 </div>
               </div>
-
+              </div>
               <!-- Uslovi korišćenja -->
               <div class="section-title">
                 <i class="bi bi-shield-check"></i> Uslovi korišćenja
@@ -370,7 +379,7 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="terms" name="terms" data-field="required" required>
                   <label class="form-check-label" for="terms">
-                    Slažem se sa <a href="uslovi-koriscenja.html">uslovima korišćenja</a> i <a href="politika-privatnosti.html">politikom privatnosti</a> *
+                    Slažem se sa <a href="/terms">uslovima korišćenja</a> i <a href="/conditions">politikom privatnosti</a> *
                   </label>
                   <div class="invalid-feedback">Morate prihvatiti uslove korišćenja.</div>
                 </div>
@@ -383,7 +392,7 @@
             </form>
 
             <div class="login-link">
-              <p style="font-size: 14px;">Već imate nalog? <a href="index.html">Prijavite se ovde</a></p>
+              <p style="font-size: 14px;">Već imate nalog? <a href="/">Prijavite se ovde</a></p>
             </div>
           </div>
         </div>
@@ -430,6 +439,10 @@
   <script src="static/js/main.js"></script>
 
   <script>
+   window.onload = () => {
+    document.querySelector("form").reset();
+  };
+
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('registerForm');
       const progressFill = document.getElementById('progressFill');
@@ -566,13 +579,20 @@
             break;
 
           case 'email':
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            isValid = emailRegex.test(field.value);
-            message = isValid ? 'Email je u redu!' : 'Molimo unesite validnu email adresu.';
-            if (isValid) {
-              checkEmailAvailability(field.value);
-            }
-            break;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  isValid = emailRegex.test(field.value);
+  message = isValid ? 'Email je u redu!' : 'Molimo unesite validnu email adresu.';
+
+  const emailAvailabilityDiv = document.getElementById('emailAvailability');
+  if (isValid) {
+    checkEmailAvailability(field.value);
+  } else {
+    // Resetuj availability poruku
+    emailAvailabilityDiv.textContent = '';
+    emailAvailabilityDiv.className = 'availability-check';
+  }
+  break;
+
 
           case 'phone':
             const phoneRegex = /^(\+381|0)[0-9]{8,9}$/;
@@ -596,13 +616,20 @@
             message = isValid ? 'Odlično!' : 'Poštanski broj mora imati 5 cifara.';
             break;
 
-          case 'username':
-            isValid = field.value.trim().length >= 3;
-            message = isValid ? 'Korisničko ime je dostupno!' : 'Mora imati najmanje 3 karaktera.';
-            if (isValid) {
-              checkUsernameAvailability(field.value);
-            }
-            break;
+         case 'username':
+  isValid = field.value.trim().length >= 3;
+  message = isValid ? 'Korisničko ime je u redu!' : 'Mora imati najmanje 3 karaktera.';
+
+  const usernameAvailabilityDiv = document.getElementById('usernameAvailability');
+  if (isValid) {
+    checkUsernameAvailability(field.value);
+  } else {
+    // Resetuj availability poruku
+    usernameAvailabilityDiv.textContent = '';
+    usernameAvailabilityDiv.className = 'availability-check';
+  }
+  break;
+
 
           case 'password':
             isValid = field.value.length >= 6;
@@ -622,15 +649,23 @@
             break;
 
           case 'rpgNumber':
-            if (farmFields.classList.contains('show')) {
-              const rpgRegex = /^[0-9]{13}$/;
-              isValid = rpgRegex.test(field.value);
-              message = isValid ? 'RPG broj je u redu!' : 'RPG broj mora imati tačno 13 cifara.';
-              if (isValid) {
-                checkRpgAvailability(field.value);
-              }
-            }
-            break;
+  const rpgAvailabilityDiv = document.getElementById('rpgAvailability');
+
+  if (farmFields.classList.contains('show')) {
+    const rpgRegex = /^[0-9]{13}$/;
+    isValid = rpgRegex.test(field.value);
+    message = isValid ? 'RPG broj je u redu!' : 'RPG broj mora imati tačno 13 cifara.';
+
+    if (isValid) {
+      checkRpgAvailability(field.value);
+    } else {
+      // Resetuj availability poruku
+      rpgAvailabilityDiv.textContent = '';
+      rpgAvailabilityDiv.className = 'availability-check';
+    }
+  }
+  break;
+
 
           case 'farmId':
           case 'farmName':
@@ -767,69 +802,92 @@
         }
       }
 
-      // Availability checkers
-      function checkEmailAvailability(email) {
+           function checkEmailAvailability(email) {
         const availabilityDiv = document.getElementById('emailAvailability');
         availabilityDiv.className = 'availability-check checking';
         availabilityDiv.textContent = 'Proverava se dostupnost...';
 
-        // Simulate API call
-        setTimeout(() => {
-          const isAvailable = !['test@example.com', 'admin@test.com'].includes(email.toLowerCase());
-          
-          if (isAvailable) {
-            availabilityDiv.className = 'availability-check available';
-            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Email je dostupan';
-          } else {
+        fetch('/check-field', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ field: 'email', value: email })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.exists) {
             availabilityDiv.className = 'availability-check unavailable';
             availabilityDiv.innerHTML = '<i class="bi bi-x-circle"></i> Email je već registrovan';
-            document.getElementById('email').classList.add('is-invalid');
             document.getElementById('email').classList.remove('is-valid');
+          } else {
+            availabilityDiv.className = 'availability-check available';
+            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Email je dostupan';
           }
-        }, 1000);
+        })
+        .catch(() => {
+            availabilityDiv.className = 'availability-check available';
+            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Email je dostupan';
+        });
       }
 
-      function checkUsernameAvailability(username) {
+            function checkUsernameAvailability(username) {
         const availabilityDiv = document.getElementById('usernameAvailability');
         availabilityDiv.className = 'availability-check checking';
         availabilityDiv.textContent = 'Proverava se dostupnost...';
 
-        // Simulate API call
-        setTimeout(() => {
-          const isAvailable = !['admin', 'test', 'user'].includes(username.toLowerCase());
+        fetch('/check-field', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ field: 'username', value: username })
+        })
+        
+        .then(res => res.json())
+        .then(data => {
           
-          if (isAvailable) {
-            availabilityDiv.className = 'availability-check available';
-            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Korisničko ime je dostupno';
-          } else {
+          if (data.exists) {
             availabilityDiv.className = 'availability-check unavailable';
             availabilityDiv.innerHTML = '<i class="bi bi-x-circle"></i> Korisničko ime je zauzeto';
             document.getElementById('username').classList.add('is-invalid');
             document.getElementById('username').classList.remove('is-valid');
-          }
-        }, 800);
-      }
-
-      function checkRpgAvailability(rpgNumber) {
-        const availabilityDiv = document.getElementById('rpgAvailability');
-        availabilityDiv.className = 'availability-check checking';
-        availabilityDiv.textContent = 'Proverava se RPG broj...';
-
-        // Simulate API call
-        setTimeout(() => {
-          const isAvailable = rpgNumber !== '1234567890123';
-          
-          if (isAvailable) {
-            availabilityDiv.className = 'availability-check available';
-            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> RPG broj je u redu';
           } else {
-            availabilityDiv.className = 'availability-check unavailable';
-            availabilityDiv.innerHTML = '<i class="bi bi-x-circle"></i> RPG broj je već registrovan';
-            document.getElementById('rpgNumber').classList.add('is-invalid');
-            document.getElementById('rpgNumber').classList.remove('is-valid');
+            availabilityDiv.className = 'availability-check available';
+            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Korisničko ime je dostupno';
           }
-        }, 1200);
+        })
+        .catch(() => {
+            availabilityDiv.className = 'availability-check available';
+            availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> Korisničko ime je dostupno';
+        });
       }
+
+
+           function checkRpgAvailability(rpgNumber) {
+           const availabilityDiv = document.getElementById('rpgAvailability');
+           availabilityDiv.className = 'availability-check checking';
+           availabilityDiv.textContent = 'Proverava se RPG broj...';
+
+           fetch('/check-field', {
+             method: 'POST',
+             headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify({ field: 'rpgNumber', value: rpgNumber })
+           })
+           .then(res => res.json())
+           .then(data => {
+             if (data.exists) {
+               availabilityDiv.className = 'availability-check unavailable';
+               availabilityDiv.innerHTML = '<i class="bi bi-x-circle"></i> RPG broj je već registrovan';
+               document.getElementById('rpgNumber').classList.add('is-invalid');
+               document.getElementById('rpgNumber').classList.remove('is-valid');
+             } else {
+               availabilityDiv.className = 'availability-check available';
+               availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> RPG broj je dostupan';
+             }
+           })
+           .catch(() => {
+                availabilityDiv.className = 'availability-check available';
+               availabilityDiv.innerHTML = '<i class="bi bi-check-circle"></i> RPG broj je dostupan';
+           });
+          }         
+
 
       // Add event listeners for real-time validation
       const fieldsToValidate = form.querySelectorAll('input, select, textarea');
@@ -851,7 +909,6 @@
 
       // Form submission
       form.addEventListener('submit', function(e) {
-        e.preventDefault();
         
         // Validate all required fields
         let isFormValid = true;
@@ -1015,6 +1072,44 @@
         mirror: false
       });
     }
-  </script>
+
+    function capitalizeInputWords(input) {
+    let words = input.value.toLowerCase().split(" ");
+    input.value = words.map(word => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(" ");
+  }
+
+  document.getElementById("firstName").addEventListener("input", function() {
+    capitalizeInputWords(this);
+  });
+
+  document.getElementById("lastName").addEventListener("input", function() {
+    capitalizeInputWords(this);
+  });
+  
+  document.getElementById("street").addEventListener("input", function () {
+    let value = this.value;
+    value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    this.value = value;
+  });
+  document.getElementById("houseNumber").addEventListener("input", function() {
+    capitalizeInputWords(this);
+  });
+
+  
+  document.getElementById("farmName").addEventListener("input", function () {
+    let value = this.value;
+    value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    this.value = value;
+  });;
+
+  document.getElementById("description").addEventListener("input", function () {
+    let value = this.value;
+    value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    this.value = value;
+  });
+
+</script>
 </body>
 </html>
